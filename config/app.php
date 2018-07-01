@@ -160,6 +160,7 @@ return [
         chiselkraft\Providers\EventServiceProvider::class,
         chiselkraft\Providers\RouteServiceProvider::class,
 
+        chiselkraft\Providers\ComponentProvider::class,
     ],
 
     /*

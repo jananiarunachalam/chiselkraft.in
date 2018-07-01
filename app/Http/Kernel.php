@@ -19,6 +19,7 @@ class Kernel extends HttpKernel
         \chiselkraft\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \chiselkraft\Http\Middleware\TrustProxies::class,
+        \chiselkraft\Http\Middleware\RedirectIfUnpublished::class,
     ];
 
     /**
