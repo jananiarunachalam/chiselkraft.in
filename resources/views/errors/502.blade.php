@@ -1,7 +1,6 @@
 @component('pages.errorReport',[
-  'ERR_CODE' => 403,
-  'ERR_TITLE' => 'FORBIDDEN',
-  'ERR_RETURN' => 1,
+  'ERR_CODE' => 502,
+  'ERR_TITLE' => 'BAD GATEWAY',
 ])
 {{-- ADDITIONAL HTML --}}
 @endcomponent

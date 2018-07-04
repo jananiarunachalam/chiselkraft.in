@@ -1,0 +1,4 @@
+html, body {height:100%;width:100%;}body{line-height:1.6;font-size:0.96rem;margin:0;}::selection{background:#000000;color:#ffffff;} 
+h1,h2,h3,h4,h5,h6{margin:0 0 .125rem 0;}p{padding:.125rem 0;}hr{display: block;height:1px;border:0;border-top:1px solid;margin:1em 0;padding:0;}
+a{color:inherit;font-weight:inherit;font-size:inherit;transition:all 0.65s cubic-bezier(0.075,0.82,0.165,1);text-decoration:none;cursor:pointer;}a:hover,a:visited,a:link,a:active,a:focus{text-decoration:none;transition:all 0.65s cubic-bezier(0.075,0.82,0.165,1);}img{vertical-align:middle;}textarea{resize:vertical;}
+@media print{body{background-color:#ffffff !important;height:auto;}}

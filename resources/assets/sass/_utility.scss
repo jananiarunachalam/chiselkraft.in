@@ -1,0 +1,170 @@
+/* padding and spacing */
+@each $name, $val in $el-space{
+  /* padding - #{$name} [#{$val}] */
+  .px-#{$name}{ padding: 0 #{$val} 0 #{$val}; }
+  .py-#{$name}{ padding: #{$val} 0 #{$val} 0; }
+  .pl-#{$name}{ padding: 0 0 0 #{$val}; }
+  .pr-#{$name}{ padding: 0 #{$val} 0 0; }
+  .pt-#{$name}{ padding: #{$val} 0 0 0; }
+  .pb-#{$name}{ padding: 0  0 #{$val} 0; }
+
+  /* margin - #{$name} [#{$val}] */
+  .mx-#{$name}{ margin: 0 #{$val} 0 #{$val}; }
+  .my-#{$name}{ margin: #{$val} 0 #{$val} 0; }
+  .ml-#{$name}{ margin: 0 0 0 #{$val}; }
+  .mr-#{$name}{ margin: 0 #{$val} 0 0; }
+  .mt-#{$name}{ margin: #{$val} 0 0 0; }
+  .mb-#{$name}{ margin: 0  0 #{$val} 0; }
+}
+
+/* border - style */
+@each $style in $el-borderstyle {
+  .b-#{$style}{ border-style: #{$style}; }
+}
+
+/* border - thickness */
+@each $i in $el-boderthickness {
+  @if $i == 0 {
+    .b-0, .nb{border: none!important; }
+  }
+  @else {
+    .b-#{$i}{ border: #{$i}px solid; }
+    @if $i == nth($el-boderthickness,-1) {
+      @media (max-width: map-get($breakpoint,'md')) {
+        .b-#{$i}{ border: none!important;}
+      }
+    }
+  }
+}
+
+/* border - remove */
+.nb-x, .nb-u, .nb-n{
+  border-left: none!important;
+  border-right: none!important;
+}
+.nb-y, .nb-c, .nb-d{
+  border-top: none!important;
+  border-bottom: none!important;
+}
+.nb-l, .nb-c{
+  border-left: none!important;
+}
+.nb-r, .nb-d{
+  border-right: none!important;
+}
+.nb-t, .nb-n{
+  border-top: none!important;
+}
+.nb-b, .nb-u{
+  border-bottom: none!important;
+}
+
+/* border - radius */
+@each $i in $el-boxradius {
+  .rad-tl-#{$i}, .rad-t-#{$i}, .rad-l-#{$i}, .rad-#{$i}, { border-top-left-radius: #{$i}px; }
+  .rad-tr-#{$i}, .rad-t-#{$i}, .rad-r-#{$i}, .rad-#{$i}, { border-top-right-radius: #{$i}px; }
+  .rad-bl-#{$i}, .rad-b-#{$i}, .rad-l-#{$i}, .rad-#{$i}, { border-bottom-left-radius: #{$i}px; }
+  .rad-br-#{$i}, .rad-b-#{$i}, .rad-r-#{$i}, .rad-#{$i}, { border-bottom-right-radius: #{$i}px; }
+}
+
+/* transparency */
+@each $i in $el-opacity {
+  .op-#{$i}{ opacity: #{$i/100}; }
+}
+.op-bg{ background: transparent!important; }
+
+/* letter spacing */
+@each $i, $v in $el-ltrspace {
+  .spacing-#{$i}{ letter-spacing: #{$v};}
+}
+
+/* font sizes */
+@each $i, $v in $el-fontsize {
+  .ty-size-#{$i}{ font-size: #{$v};}
+}
+
+/* text transform */
+@each $i in $el-typetransform {
+  .#{$i}{ text-transform: #{$i};}
+}
+.underline{
+  text-decoration: underline;
+}
+.footnote{
+  font-size: 0.85em;
+}
+
+@media print {
+  .footnote{
+    font-size: 6pt;
+    letter-spacing: 1.2px;
+  }
+}
+
+/* icons */
+@each $i in $el-icon {
+    .ico-#{$i}{ font-size: #{$i}px; }
+}
+@each $name, $x in $breakpoint{
+  @media (min-width: #{$x}){
+    @each $i in $el-icon {
+      .ico-#{$name}-#{$i}{ font-size: #{$i}px; }
+    }
+  }
+}
+
+/* element height */
+@each $i in $el-height {
+    .h-#{$i}{ height: #{$i}px; }
+}
+@each $name, $x in $breakpoint{
+  @media (min-width: #{$x}){
+    @each $i in $el-height {
+      .h-#{$name}-#{$i}{ height: #{$i}; }
+    }
+  }
+}
+
+/* shadow effect */
+@mixin material-shadow($z-depth: 1, $strength: 1, $color: black) {
+  @if $z-depth == 1 {
+    box-shadow: 0 1px 3px rgba($color, $strength * 0.14), 0 1px 2px rgba($color, $strength * 0.24);
+  }
+  @if $z-depth == 2 {
+    box-shadow: 0 3px 6px rgba($color, $strength * 0.16), 0 3px 6px rgba($color, $strength * 0.23);
+  }  
+  @if $z-depth == 3 {
+    box-shadow: 0 10px 20px rgba($color, $strength * 0.19), 0 6px 6px rgba($color, $strength * 0.23);
+  }    
+  @if $z-depth == 4 {
+    box-shadow: 0 15px 30px rgba($color, $strength * 0.25), 0 10px 10px rgba($color, $strength * 0.22);    
+  }
+  @if $z-depth == 5{
+    box-shadow: 0 20px 40px rgba($color, $strength * 0.30), 0 15px 12px rgba($color, $strength * 0.22);   
+  }
+  @if ($z-depth < 1) or ($z-depth > 5) {
+    @warn "$z-depth must be between 1 and 5";
+  }
+}
+
+@mixin material-text-shadow($z-depth: 1, $strength: 1, $color: black) {
+  @if $z-depth == 1 {
+    text-shadow: 0 1px 3px rgba($color, $strength * 0.14), 0 1px 2px rgba($color, $strength * 0.24);
+  }
+  @if $z-depth == 2 {
+    text-shadow: 0 3px 6px rgba($color, $strength * 0.16), 0 3px 6px rgba($color, $strength * 0.23);
+  }  
+  @if $z-depth == 3 {
+    text-shadow: 0 10px 20px rgba($color, $strength * 0.19), 0 6px 6px rgba($color, $strength * 0.23);
+  }    
+  @if $z-depth == 4 {
+    text-shadow: 0 15px 30px rgba($color, $strength * 0.25), 0 10px 10px rgba($color, $strength * 0.22);    
+  }
+  @if $z-depth == 5{
+    text-shadow: 0 20px 40px rgba($color, $strength * 0.30), 0 15px 12px rgba($color, $strength * 0.22);   
+  }
+  @if ($z-depth < 1) or ($z-depth > 5) {
+    @warn "$z-depth must be between 1 and 5";
+  }
+}
+.wrap-center{height:100%; width:100%;display:flex;flex-direction:row;align-items: center; justify-content: center;}

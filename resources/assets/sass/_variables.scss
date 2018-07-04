@@ -1,1 +1,58 @@
+$breakpoint: ( //breakpoints
 
+    // Small screen / phone
+    sm: 576px,
+
+    // Medium screen / tablet
+    md: 768px,
+
+    // Large screen / desktop
+    lg: 992px,
+
+    // Extra large screen / wide desktop
+    xl: 1200px,
+
+);
+
+//element spacing
+$el-space: ( s: 2rem, m: 4rem, l: 6rem);
+
+// element border
+$el-borderstyle: ( 'dashed', 'dotted', 'double');
+$el-boderthickness: ( 0, 1, 2, 3, 4, 5, 20);
+$el-boxradius: ( 0, 3, 6, 12, 16, 24, 32);
+
+// element transparency
+$el-opacity:(0, 10, 25, 50, 75, 100, );
+
+// element letter spacing
+$el-ltrspace:( 0: auto, 1: 1.12px, 2: 1.4px, 3: 2px, 4: 4.5px, 5: 6px);
+
+// element font size
+$el-fontsize: ( 
+    0: .8em,
+    1: 1em,
+    2: 1.15em,
+    3: 1.3em,
+    4: 1.45em,
+    5: 1.6em
+);
+
+$el-typetransform: (
+    'uppercase',
+    'lowercase',
+    'capitalize'
+);
+$el-icon: (12, 14, 16, 18, 21, 24, 32, 48, 64, 96);
+$el-height: (1, 2, 3, 4, 5, 16, 24, 32, 48, 64, 72, 96);
+
+// reset.scss
+$duration: .65s;
+
+$def-fontsize: .96rem;
+
+$def-lineheight: 1.6;
+
+$selection-bg: #000000;
+
+$selection-col: #ffffff;
