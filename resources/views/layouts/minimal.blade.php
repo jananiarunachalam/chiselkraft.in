@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
@@ -22,10 +23,6 @@
   {{-- CONTENT --}}
   @yield('PAGE')
   
-  {{-- CSS --}}
-  @include('tools.importJS',[
-
-  ])
   {{-- EXTRAS --}}
   @yield('INJ_BODY')
 </body>

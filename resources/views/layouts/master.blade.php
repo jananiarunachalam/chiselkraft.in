@@ -1,7 +1,5 @@
 {{-- global config --}}
-@isset($PAGE_FONT)@else <?php $PAGE_FONT = config('site.global.googleFont'); ?> @endisset
-@isset($PAGE_CSS)@else  <?php $PAGE_CSS  = config('site.global.css') ?> @endisset
-@isset($PAGE_JS)@else   <?php $PAGE_JS   = config('site.global.js') ?> @endisset
+@isset($SETTING)@else <?php $SETTING = config('site.global.setting'); ?> @endisset
 
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
@@ -21,8 +19,8 @@
   <link rel="shortcut icon" href="favicon.ico">
   
   {{-- WEBFONTS & CSS --}}
-  @include('tools.importFont',['googleFont' => $PAGE_FONT])
-  @foreach($PAGE_CSS as $stylesheet) <link rel="stylesheet" href="{{ $stylesheet }}"> @endforeach
+  @isset($SETTING['googleFont']) @include('tools.importFont',['googleFont' => $SETTING['googleFont']]) @endif
+  @foreach($SETTING['css'] as $stylesheet) <link rel="stylesheet" href="{{ $stylesheet }}"> @endforeach
 
   {{-- EXTRAS --}}
   @yield('INJ_HEAD')
@@ -35,7 +33,7 @@
   @yield('PAGE')
   
   {{-- JAVASCRIPT --}}
-  @foreach($PAGE_JS as $script) <script src="{{ $script }}"></script> @endforeach
+  @foreach($SETTING['js'] as $script) <script src="{{ $script }}"></script> @endforeach
   
   {{-- EXTRAS --}}
   @yield('INJ_BODY')
